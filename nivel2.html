@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Nível 2 - O Álibi</title>
+    <link rel="stylesheet" href="nivel2.css">
+    <style>
+        .card.esgotado { opacity: 0.5; filter: grayscale(1); cursor: not-allowed !important; }
+        .error-bg { background-color: #ffdddd !important; }
+        /* Garante que o slot content ocupe tudo para receber os personagens */
+        .slot-content { width: 100%; height: 100%; position: relative; pointer-events: none; }
+        .slot-content .card { pointer-events: auto; }
+    </style>
+</head>
+<body>
+
+<h2 class="titulo">Mary prepara o álibi</h2>
+
+<div class="painel">
+    <div class="slot" id="slot1"><div class="slot-content"></div></div>
+    <div class="slot" id="slot2"><div class="slot-content"></div></div>
+    <div class="slot" id="slot3"><div class="slot-content"></div></div>
+</div>
+
+<h3 class="subtitulo" style="text-align:center; margin-bottom:20px;">Arrasta os elementos para construir a cena correta</h3>
+
+<div id="contentor" class="elementos">
+    <div class="card fundo" draggable="true" data-img="assets/Cozinha2.png" id="fundoCozinha"><span>Cozinha</span></div>
+    <div class="card fundo" draggable="true" data-img="assets/Sala.png" id="fundoSala"><span>Sala</span></div>
+    <div class="card fundo" draggable="true" data-img="assets/Mercearia.png" id="fundoMercearia"><span>Mercearia</span></div>
+
+    <div class="card personagem" draggable="true" id="mary" data-personagem="mary" data-uso="5">
+        <img src="assets/Mary.png" alt="Mary">
+    </div>
+    <div class="card personagem" draggable="true" id="perna" data-personagem="perna" data-uso="5">
+        <img src="assets/pernaCordeiro.jpeg" alt="Perna">
+    </div>
+    <div class="card personagem" draggable="true" id="maridoMorto" data-personagem="maridoMorto" data-uso="5">
+        <img src="assets/homemMorto.png" alt="Marido Morto">
+    </div>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2 id="tituloFinal">Feedback</h2>
+        <p id="descricaoFinal"></p>
+        <div style="margin-top: 20px;">
+            <button id="btnAvancar" style="display: none; padding: 10px 20px; cursor: pointer;">Avançar para Nível 3</button>
+            <button id="btnTentarNovamente" onclick="location.reload()" style="padding: 10px 20px; cursor: pointer;">Tentar Novamente</button>
+        </div>
+    </div>
+</div>
+
+<script src="nivel2.js"></script>
+</body>
+</html>

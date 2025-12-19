@@ -1,0 +1,125 @@
+:root {
+    --slot-size: 340px;
+    --slot-gap: 36px;
+    --card-width: 120px;
+    --card-radius: 12px;
+    --accent: #4CAF50;
+    --danger: #ffdddd;
+    --bg: #f4f4f4;
+    --slot-border: #bdbdbd;
+}
+
+/* Base e Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    padding: 22px; color: #222;
+    transition: background-color 0.35s ease;
+}
+
+.titulo {
+    font-size: 1.6rem; margin-bottom: 18px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    text-align: center;
+}
+
+.painel {
+    display: flex; justify-content: center; gap: var(--slot-gap);
+    margin-bottom: 28px; flex-wrap: wrap;
+}
+
+.slot {
+    width: var(--slot-size); height: var(--slot-size);
+    background-color: #e9e9e9;
+    border: 3px dashed var(--slot-border);
+    border-radius: 14px; position: relative; overflow: hidden;
+    transition: all 0.25s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slot.over { border-color: #7fb3ff; background-color: #eaf6ff; transform: translateY(-4px); }
+
+/* Contentor interno dos personagens */
+.slot .slot-content {
+    position: relative; /* Necessário para o posicionamento absoluto das peças */
+    width: 100%; height: 100%;
+    z-index: 10;
+}
+
+/* --- POSICIONAMENTO ESPECÍFICO DAS PEÇAS --- */
+
+.slot .card {
+    position: absolute; /* As peças flutuam sobre o cenário */
+    width: 100px;
+    background: none; border: none; box-shadow: none;
+    cursor: pointer;
+}
+
+.slot .card img {
+    width: 100%; height: auto;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+/* Mary: Lado esquerdo */
+.slot .card[data-personagem="mary"] {
+    left: 20px;
+    bottom: 30px;
+}
+
+/* Marido: Lado direito (perto do sofá no cenário Sala.png) */
+.slot .card[data-personagem="marido"] {
+    right: 20px;
+    bottom: 30px;
+}
+
+/* Perna de Cordeiro: Perto das mãos da Mary */
+.slot .card[data-personagem="perna"] {
+    left: 80px;
+    bottom: 80px;
+    z-index: 20;
+}
+
+/* Marido Morto: Centro do chão */
+.slot .card[data-personagem="maridoMorto"] {
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+
+/* --- RESTANTE DO ESTILO --- */
+
+.fx {
+    position: absolute; bottom: 15px; right: 15px; font-size: 35px;
+    opacity: 0; transform: scale(0.5); transition: all 0.3s ease;
+    z-index: 50; pointer-events: none;
+}
+.fx.show { opacity: 1; transform: scale(1); }
+
+.elementos { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+.card {
+    width: var(--card-width); background: #fff; border: 1px solid #d0d0d0;
+    border-radius: var(--card-radius); padding: 10px; text-align: center;
+    cursor: grab; transition: all 0.15s ease;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.card img { width: 100%; height: 90px; object-fit: contain; margin-bottom: 5px; }
+
+.card.esgotado { opacity: 0.4; filter: grayscale(1); cursor: not-allowed !important; }
+.error-bg { background-color: var(--danger) !important; }
+
+.popup {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+    align-items: center; justify-content: center; z-index: 100;
+}
+.popup-content {
+    background: #fff; padding: 35px; border-radius: 20px; text-align: center; max-width: 450px;
+}
+.popup-content button {
+    padding: 12px 25px; border-radius: 8px; border: none; font-weight: 700;
+    cursor: pointer; margin-top: 20px; background: var(--accent); color: white;
+}
