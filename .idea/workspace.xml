@@ -41,6 +41,7 @@
     "JavaScript Debug.LambToTheSlaugther.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "JavaScript Debug.nivel1.html.executor": "Run",
+    "JavaScript Debug.nivel4.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Node.js.nivel1.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -99,7 +100,7 @@
       <workItem from="1766073683746" duration="1460000" />
       <workItem from="1766075195251" duration="1328000" />
       <workItem from="1766085786115" duration="2375000" />
-      <workItem from="1766108394550" duration="1365000" />
+      <workItem from="1766108394550" duration="5213000" />
     </task>
     <servers />
   </component>

@@ -99,4 +99,4 @@ function avaliarCena() {
 
 btnAvancar.addEventListener('click', () => {
     window.location.href = 'index.html'; // Volta ao início
-});ddEventListener('click', () => window.location.href = 'index.html');
+});addEventListener('click', () => window.location.href = 'index.html');
