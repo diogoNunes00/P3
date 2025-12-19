@@ -93,4 +93,4 @@ function exibirFeedback(sucesso, titulo, desc) {
     else document.body.classList.remove('error-bg');
 }
 
-btnAvancar.addEventListener('click', () => { window.location.href = 'test3.html'; });
+btnAvancar.addEventListener('click', () => { window.location.href = 'nivel3.html'; });
